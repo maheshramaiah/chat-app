@@ -1,0 +1,17 @@
+1. Coonect to socket with userId as param
+2. When user connects, store the socketid in User table
+3. Whenerver a new user connects, emit a message from server to client with the new user info
+4. When we get request from cliemt to send message
+    a. Check if user has socket id
+    b. Id user has socker id, emit the message with that socket id
+    c. Save the message in db
+
+
+Chat table schema
+{
+    FromUserId: string,
+    ToUserId: string,
+    timestamp: dateTime
+}
+
+While fetching chats, get the chats from fromUserId and ToUserId and merge the chats with ascending order of timestamp

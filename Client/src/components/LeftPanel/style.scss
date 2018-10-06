@@ -1,0 +1,45 @@
+.leftPanel {
+    background-color: #024259;
+    .list {
+        list-style: none;
+        padding: 0px;
+        margin: 0;
+        &>li {
+            padding: 10px;
+            color: #fff;
+            border-bottom: 1px solid #fff;
+            cursor: pointer;
+            &.selected {
+                background-color: #bb8;
+            }
+            &:hover {
+                opacity: 0.5;
+            }
+            div {
+                display: inline-block;
+            }
+            .name {
+                display: inline-block;
+                margin-left: 10px;
+            }
+            .status {
+                width: 10px;
+                height: 10px;
+                border-radius: 100%;
+                background-color: #fff;
+                margin-left: 20px;
+            }
+        }
+    }
+    .notifyChat {
+        animation: notifyChat 1s infinite;
+    }
+    @keyframes notifyChat {
+        0% {
+            background-color: none;
+        }
+        100% {
+            background-color: #ea2525;
+        }
+    }
+}

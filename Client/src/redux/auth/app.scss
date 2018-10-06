@@ -1,0 +1,24 @@
+.auth-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(135.18deg, rgba(4, 159, 217, 0.9) 0%, rgba(13, 142, 201, 0.9) 22.9%, rgba(43, 85, 146, 0.9) 100%);
+    .section-body {
+        width: 480px;
+        background: #fff;
+        border-radius: 4px;
+        margin: 0 auto;
+        margin-top: 100px;
+        padding: 30px;
+        box-sizing: border-box;
+        position: relative;
+        .error {
+            font-size: 12px;
+            text-align: center;
+            color: #ef0909;
+            margin-bottom: 10px;
+        }
+    }
+}

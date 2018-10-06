@@ -1,0 +1,19 @@
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Lato Regular'), local('Lato-Regular'), url('./assets/fonts/Lato-Regular.woff') format('woff');
+}
+
+body {
+    font-family: 'Lato';
+    margin: 0;
+}
+
+.clearfix:after {
+    content: " ";
+    visibility: hidden;
+    display: block;
+    height: 0;
+    clear: both;
+ }

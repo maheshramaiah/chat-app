@@ -1,0 +1,47 @@
+.chatWindow {
+    position: relative;
+    height: 100%;
+    .chatsContainer {
+        padding: 10px;
+        .chatList {
+            list-style-type: none;
+            padding: 0;
+            .chat {
+                margin-bottom: 20px;
+                padding: 15px;
+                background: #fff;
+                border-radius: 4px;
+                p {
+                    margin: 0;
+                }
+                .name {
+                    color: #635956;
+                    font-size: 14px;
+                    padding-bottom: 5px;
+                    text-transform: capitalize;
+                }
+            }
+        }
+    }
+    .inputContainer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 75px;
+        background: #fff;
+        padding: 15px;
+        box-sizing: border-box;
+        input {
+            display: inline-block;
+            width: 100%;
+            height: 40px;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 0;
+            font-size: 14px;
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+}
