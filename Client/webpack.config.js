@@ -43,5 +43,11 @@ module.exports = {
 				]
 			}
 		]
+	},
+	optimization: {
+		splitChunks: {
+			chunks: 'all',
+			name: 'common'
+		}
 	}
 };

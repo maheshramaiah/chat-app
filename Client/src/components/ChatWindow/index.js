@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 import './style.scss';
 
 const ChatWindow = (props) => {
@@ -17,11 +18,16 @@ const ChatWindow = (props) => {
                 <ul className="chatList">
                     {
                         chats.map((chat, index) => {
-                            const { fromUserId, msg } = chat;
+                            const { fromUserId, msg, date } = chat;
+                            const formattedDate = moment(date).format('lll');
 
                             return (
                                 <li key={index} className="chat">
-                                    <p className="name">{fromUserId !== user.id ? 'You' : user.userName}</p>
+                                    <div>
+                                        <span className="name">{fromUserId !== user.id ? 'You' : user.userName}</span>
+                                        <span className="timeStamp">{formattedDate}</span>
+                                    </div>
+
                                     <p className="msg">{msg}</p>
                                 </li>
                             );

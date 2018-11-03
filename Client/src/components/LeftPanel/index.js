@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.scss';
 import classNames from 'classnames';
-import Avatar from '../Avatar/avatar.js';
+import Avatar from '../Avatar';
 
 const LeftPanel = (props) => {
     const { users, selectedUser, chatUserSelectionChange, notifyIncomingChatUserId } = props;

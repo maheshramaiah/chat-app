@@ -1,5 +1,5 @@
-import actionCreator from './actionCreator.js';
-import AjaxUtils from '../../../utils/ajaxUtils.js';
+import actionCreator from './actionCreator';
+import AjaxUtils from '../../../utils/ajaxUtils';
 
 export function register(data) {
     return async (dispatch) => {

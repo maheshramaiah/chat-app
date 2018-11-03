@@ -4,7 +4,8 @@ const config = {
         //url: 'mongodb://chat-db:27017',
         url: 'mongodb://10.105.170.100:32715',
         database: 'chat'
-    }
+    },
+    saveChat: false
 };
 
 module.exports = config;

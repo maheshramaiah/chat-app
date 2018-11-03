@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import './app.scss';
-import Login from './login/app.js';
-import Register from './register/app.js';
+import Login from './login/app';
+import Register from './register/app';
 
 const Auth = ({ match }) => {
     return (

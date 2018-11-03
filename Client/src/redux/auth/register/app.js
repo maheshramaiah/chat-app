@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import actionCreators from './actionCreator.js';
-import * as apiActions from './apiActions.js';
-import * as selectors from './selector.js';
+import actionCreators from './actionCreator';
+import * as apiActions from './apiActions';
+import * as selectors from './selector';
 import {
     Input,
     Button,

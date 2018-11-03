@@ -1,8 +1,8 @@
-import Input from './Input/input.js';
-import Button from './Button/button.js';
-import LeftPanel from './LeftPanel/leftPanel.js';
-import ChatWindow from './ChatWindow/chatWindow.js';
-import Loader from './Loader/loader.js';
+import Input from './Input';
+import Button from './Button';
+import LeftPanel from './LeftPanel';
+import ChatWindow from './ChatWindow';
+import Loader from './Loader';
 
 export {
     Input,

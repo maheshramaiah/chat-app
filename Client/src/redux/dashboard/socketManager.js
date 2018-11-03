@@ -1,5 +1,5 @@
 import io from 'socket.io-client';
-import Storage from '../../utils/storage.js';
+import Storage from '../../utils/storage';
 
 class SocketManager {
     constructor(conf) {

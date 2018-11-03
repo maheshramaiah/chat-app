@@ -1,4 +1,6 @@
 const userService = require('./service/user');
+const chatService = require('./service/chat');
+const config = require('./config/config');
 
 function emitUsersList(io, users) {
     const usersList = users.map((user) => {
@@ -26,7 +28,20 @@ function receiveAndEmitPrivateMessage(io, data) {
     if (socketId) {
         const socketConn = io.sockets.sockets[socketId];
 
-        socketConn && socketConn.emit('EMIT_PRIVATE_MESSAGE', data);
+        if (socketConn) {
+            if (config.saveChat) {
+                chatService.saveChat(data)
+                    .then(() => {
+                        socketConn.emit('EMIT_PRIVATE_MESSAGE', data);
+                    })
+                    .catch(() => {
+                        console.log('Error saving chat');
+                    });
+            }
+            else {
+                socketConn.emit('EMIT_PRIVATE_MESSAGE', data);
+            }
+        }
     }
 }
 

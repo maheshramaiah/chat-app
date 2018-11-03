@@ -2,15 +2,21 @@
     position: relative;
     height: 100%;
     .chatsContainer {
-        padding: 10px;
+        margin: 10px;
+        height: calc(100% - 75px);
+        overflow: auto;
         .chatList {
             list-style-type: none;
             padding: 0;
+            margin: 0;
             .chat {
                 margin-bottom: 20px;
                 padding: 15px;
                 background: #fff;
                 border-radius: 4px;
+                &>div {
+                    margin-bottom: 10px;
+                }
                 p {
                     margin: 0;
                 }
@@ -19,6 +25,11 @@
                     font-size: 14px;
                     padding-bottom: 5px;
                     text-transform: capitalize;
+                }
+                .timeStamp {
+                    display: inline-block;
+                    font-size: 12px;
+                    margin-left: 15px;
                 }
             }
         }

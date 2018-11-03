@@ -1,13 +1,10 @@
 import express from 'express';
-import webpack from 'webpack';
 import path from 'path';
-import webpackConfig from './webpack.config';
 import httpProxy from 'http-proxy';
 import { config } from './config.js';
 
 const port = config.port;
 const app = express();
-const compiler = webpack(webpackConfig);
 const proxy = httpProxy.createProxyServer({
 	secure: false,
 	target: config.backendService,
@@ -16,20 +13,21 @@ const proxy = httpProxy.createProxyServer({
 	changeOrigin: true
 });
 
-app.use(require('webpack-dev-middleware')(compiler, {
-	noInfo: true,
-	publicPath: webpackConfig.output.publicPath
-}));
+app.use(express.static(path.join(__dirname, 'dist')));
 
-app.use('/', function (req, res) {
+app.use('/', function (req, res, next) {
 	const { url } = req;
 
 	if (url.startsWith('/api') || url.startsWith('/socket.io/')) {
 		proxy.web(req, res, {}, function (e) { });
 	}
 	else {
-		res.sendFile(path.join(__dirname, 'src/index.html'));
+		next();
 	}
+});
+
+app.get('*', (req, res) => {
+	res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
 
 app.listen(port, function (err) {

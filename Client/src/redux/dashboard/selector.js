@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import Storage from '../../utils/storage.js';
+import Storage from '../../utils/storage';
 
 const usersList = state => state.dashboard.users;
 const selectedUser = state => state.dashboard.selectedUser;

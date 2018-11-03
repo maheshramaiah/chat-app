@@ -1,16 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import actionCreators from './actionCreator.js';
-import SocketManager from './socketManager.js';
-import * as selectors from './selector.js';
+import actionCreators from './actionCreator';
+import SocketManager from './socketManager';
+import * as selectors from './selector';
 import './app.scss';
 import {
     LeftPanel,
     ChatWindow,
     Loader
-} from '../../components/all.js';
-import Storage from '../../utils/storage.js';
+} from '../../components/all';
+import Storage from '../../utils/storage';
 
 class Dashboard extends React.Component {
     constructor() {
@@ -61,7 +61,8 @@ class Dashboard extends React.Component {
             msg,
             socketId,
             fromUserId: this.loggedInUser._id,
-            toUserId
+            toUserId,
+            date: (new Date()).toISOString()
         };
 
         this.props.actions.onSaveMessage(chatParams, toUserId);
