@@ -10,17 +10,17 @@ function mongoConnection() {
         return state.db;
     }
 
-    function connect() {
-        return new Promise((resolve, reject) => {
-            const { url, database } = dbConfig;
+    async function connect() {
+        const { url, database } = dbConfig;
 
-            mongoClient.connect(url, { useNewUrlParser: true }).then(client => {
-                state.db = client.db(database);
-                resolve();
-            }).catch(err => {
-                reject(err);
-            });
-        });
+        try {
+            const client = await mongoClient.connect(url, { useNewUrlParser: true });
+            state.db = client.db(database);
+            return;
+        }
+        catch(e) {
+            throw e;
+        }
     }
 
     function close() {

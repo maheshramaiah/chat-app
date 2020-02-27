@@ -7,23 +7,24 @@ function loginService() {
         return bcrypt.compareSync(password, hash)
     }
 
-    function login(req) {
-        return new Promise((resolve, reject) => {
-            const { email, password } = req;
-            const collection = collections.USER;
+    async function login(req) {
+        const { email, password } = req;
+        const collection = collections.USER;
 
-            db.getOne({ collection, params: { email } }).then(user => {
-                if (!user || !checkPassword(password, user.password)) {
-                    throw new Error('Authentication Failed: Bad credentials');
-                }
+        try {
+            const user = await db.getOne({ collection, params: { email } });
 
-                delete user.password;
+            if (!user || !checkPassword(password, user.password)) {
+                throw new Error('Authentication Failed: Bad credentials');
+            }
 
-                resolve({ msg: 'Login successfull', user });
-            }).catch(err => {
-                reject(err.message);
-            });
-        });
+            delete user.password;
+
+            return { msg: 'Login successfull', user }
+        }
+        catch (err) {
+            throw err.message;
+        }
     }
 
     return {

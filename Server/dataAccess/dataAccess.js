@@ -12,40 +12,43 @@ function dataAccess() {
         });
     }
 
-    function getOne(config) {
-        return new Promise((resolve, reject) => {
-            const { collection, params } = config;
+    async function getOne(config) {
+        const { collection, params } = config;
 
-            db.get().collection(collection).findOne(params).then(data => {
-                resolve(data);
-            }).catch(err => {
-                reject(err);
-            });
-        });
+        try {
+            const data = await db.get().collection(collection).findOne(params);
+
+            return data;
+        }
+        catch (err) {
+            throw new Error(err);
+        }
     }
 
-    function insert(config) {
-        return new Promise((resolve, reject) => {
-            const { collection, params } = config;
+    async function insert(config) {
+        const { collection, params } = config;
 
-            db.get().collection(collection).insertOne(params).then(data => {
-                resolve(data);
-            }).catch(err => {
-                reject(err);
-            });
-        });
+        try {
+            const data = await db.get().collection(collection).insertOne(params);
+
+            return data;
+        }
+        catch (err) {
+            throw new Error(err);
+        }
     }
 
-    function updateOne(config) {
-        return new Promise((resolve, reject) => {
-            const { collection, query, values } = config;
+    async function updateOne(config) {
+        const { collection, query, values } = config;
 
-            db.get().collection(collection).updateOne(query, values).then(() => {
-                resolve();
-            }).catch(err => {
-                reject(err);
-            });
-        });
+        try {
+            await db.get().collection(collection).updateOne(query, values);
+
+            return;
+        }
+        catch (err) {
+            throw new Error(err);
+        }
     }
 
     return {
